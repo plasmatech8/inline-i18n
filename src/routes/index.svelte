@@ -11,41 +11,42 @@
 	onMount(() => setLanguage('en'));
 	onMount(() => console.log(Array.from(getImplementedLanguages())));
 	let debug: any;
-
-	function handleGetTranslationLanguages() {
-		debug = Array.from(getImplementedLanguages());
-		console.log(debug);
-	}
-	function handleCheckTranslations() {
-		debug = checkTranslations();
-		console.log(debug);
-	}
 </script>
 
-<h1>Inline-i18n Demo</h1>
-
+<!-- Header -->
+<h1 class="text-align: center;">
+	Inline-i18n Demo
+	<a href="https://github.com/plasmatech8/inline-i18n">
+		<img
+			src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+			alt="Github Link"
+			height="40"
+		/>
+	</a>
+</h1>
+<p>
+	Allows you to write classes like "en", "de", "fr" to specify which language the element will show
+	for.
+</p>
+<p>
+	When you call the function setLanguage('en'), it will show all elements containing the "en" class,
+	and hide any elements which contain any other language code in the class name.
+</p>
+<p>
+	See <a href="https://github.com/plasmatech8/inline-i18n">plasmatech8/inline-i18a</a> for more details.
+</p>
 <hr />
 
-<section>
-	<h2>Tools</h2>
-	<button on:click={() => (debug = Array.from(getImplementedLanguages()))}>
-		getImplementedLanguages()
-	</button>
-	<button on:click={() => (debug = checkTranslations())}> checkTranslations() </button>
-	<pre><code>{JSON.stringify(debug, null, 4)}</code></pre>
-</section>
-
-<hr />
-
+<!-- Set language -->
 <section>
 	<h2>Set Language</h2>
 	{#each langs as l}
 		<button on:click={() => setLanguage(l)}>setLanguage("{l}")</button>
 	{/each}
 </section>
-
 <hr />
 
+<!-- Content -->
 <section>
 	<h2>Content</h2>
 	<h3>Single Language</h3>
@@ -92,6 +93,19 @@
 		</div>
 	</div>
 </section>
+<hr />
+
+<!-- Other Tools -->
+<section>
+	<details>
+		<summary>Other Tools</summary>
+		<button on:click={() => (debug = Array.from(getImplementedLanguages()))}>
+			getImplementedLanguages()
+		</button>
+		<button on:click={() => (debug = checkTranslations())}> checkTranslations() </button>
+		<pre><code>{JSON.stringify(debug, null, 4)}</code></pre>
+	</details>
+</section>
 
 <style>
 	button {
@@ -107,5 +121,9 @@
 		display: grid;
 		grid-template-columns: 50% 50%;
 		gap: 10px;
+	}
+
+	.flex {
+		display: flex;
 	}
 </style>
