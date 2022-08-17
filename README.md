@@ -66,7 +66,7 @@ This would make it easier to throw warnings/errors when a language is not implem
 Using a centralised configuration file can make it easier to manage translations because:
 * All translations are co-located in a single file
 * The same text can be used multiple times in separate components
-* It keeps our code smaller, and avoids having to write many lines of code which bloats the codebase
+* It keeps our code smaller, and avoids having to write many lines of code for each translation - which bloats the codebase
 
 The downside of this is that there is no context for each translation (and we may need to write comments to 
 describe how a translation is used). It is also a more annoying process to add translations in a seperate file.
